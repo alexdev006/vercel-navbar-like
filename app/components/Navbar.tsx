@@ -8,19 +8,15 @@ import Link from "next/link";
 const navItems = [
   {
     path: "/",
-    name: "Home",
+    name: "Accueil",
   },
   {
-    path: "/now",
-    name: "Now",
+    path: "/works",
+    name: "Réalisations",
   },
   {
-    path: "/guestbook",
-    name: "Guestbook",
-  },
-  {
-    path: "/writing",
-    name: "Writing",
+    path: "/contact",
+    name: "Contact",
   },
 ];
 
@@ -34,8 +30,8 @@ export default function NavBar() {
   const [hoveredPath, setHoveredPath] = useState(pathname);
 
   return (
-    <div className="border border-stone-800/90 p-[0.4rem] rounded-lg mb-12 sticky top-4 z-[100] bg-stone-900/80 backdrop-blur-md">
-      <nav className="flex gap-2 relative justify-start w-full z-[100]  rounded-lg">
+    <div className="border border-neutral-200 dark:border-neutral-700 p-[0.4rem] rounded-lg mb-12 sticky top-4 z-[100] bg-neutral-50 dark:bg-neutral-800 bg-blur-md">
+      <nav className="flex gap-2 relative justify-start w-full z-[100] rounded-lg">
         {navItems.map((item, index) => {
           const isActive = item.path === pathname;
 
@@ -43,7 +39,7 @@ export default function NavBar() {
             <Link
               key={item.path}
               className={`px-4 py-2 rounded-md text-sm lg:text-base relative no-underline duration-300 ease-in ${
-                isActive ? "text-zinc-100" : "text-zinc-400"
+                isActive ? "text-zinc-100 font-semibold" : "text-zinc-400"
               }`}
               data-active={isActive}
               href={item.path}
@@ -53,7 +49,7 @@ export default function NavBar() {
               <span>{item.name}</span>
               {item.path === hoveredPath && (
                 <motion.div
-                  className="absolute bottom-0 left-0 h-full bg-stone-800/80 rounded-md -z-10"
+                  className="absolute bottom-0 left-0 h-full bg-neutral-700 rounded-md -z-10"
                   layoutId="navbar"
                   aria-hidden="true"
                   style={{
@@ -62,9 +58,9 @@ export default function NavBar() {
                   transition={{
                     type: "spring",
                     bounce: 0.25,
-                    stiffness: 130,
-                    damping: 9,
-                    duration: 0.3,
+                    //stiffness: 130,
+                    //damping: 9,
+                    //duration: 0.3,
                   }}
                 />
               )}
